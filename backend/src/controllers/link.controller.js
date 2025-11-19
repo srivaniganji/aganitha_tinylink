@@ -61,8 +61,8 @@ const getLinkStats = async (req, res) => {
       return res.status(404).json({ error: "Shortcode not found" });
     }
 
-    await linkService.incrementClicks(code);
-    res.redirect(link.rows[0].target_link);
+    await linkService.incrementClicksandTime(code);
+    return res.redirect(link.rows[0].target_link);
   } catch (error) {
     console.error("Error getting link:", error);
     return res.status(500).json({ error: "Server error" });

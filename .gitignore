@@ -9,3 +9,5 @@ frontend/build/
 # Environment files
 backend/.env
 frontend/.env
+
+frontend/src/config.js

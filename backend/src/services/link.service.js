@@ -31,15 +31,15 @@ const createLink = async (url, shortCode) => {
 
 const getLinkByCode = async (code) => {
   const result = await pool.query(
-    `SELECT target_link FROM links WHERE shortcode = $1`,
+    `SELECT * FROM links WHERE shortcode = $1`,
     [code]
   );
   return result;
 };
 
-const incrementClicks = async (code) => {
+const incrementClicksandTime = async (code) => {
   await pool.query(
-    `UPDATE links SET total_clicks = total_clicks + 1 WHERE shortcode = $1`,
+    `UPDATE links SET total_clicks = total_clicks + 1, last_clicked_time = NOW() WHERE shortcode = $1`,
     [code]
   );
 };
@@ -59,5 +59,5 @@ module.exports = {
   createLink,
   getLinkByCode,
   deleteByCode,
-  incrementClicks,
+  incrementClicksandTime,
 };
