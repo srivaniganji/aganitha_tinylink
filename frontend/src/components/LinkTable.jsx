@@ -1,4 +1,4 @@
-import { API } from "../config";
+import { API } from "../config.js";
 
 export default function LinkTable({ links, onDelete }) {
   if (!links.length) return <p>No links yet.</p>;

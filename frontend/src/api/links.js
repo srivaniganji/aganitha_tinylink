@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API } from "../config";
+import { API } from "../config.js";
 //const API = "http://localhost:5000/api/links";
 
 export const getAllLinks = () => axios.get(API);
